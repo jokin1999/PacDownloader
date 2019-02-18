@@ -10,10 +10,10 @@ print('version: ' + VERSION)
 url = 'https://raw.githubusercontent.com/petronny/gfwlist2pac/master/gfwlist.pac'
 # 关闭证书验证
 ssl._create_default_https_context = ssl._create_unverified_context
-print('获取网络数据中...')
+print('loading...')
 response = urllib.urlopen(url)
 pac = response.read().decode('UTF-8')
-print('写入本地数据中...')
+print('writing...')
 try:
     with open('pac.txt', 'r+') as f:
         bak = f.read()
@@ -24,5 +24,5 @@ if (bak is not False):
         f2.write(bak)
 with open('pac.txt', 'w+') as f:
     f.write(pac)
-print('更新完成，3秒后退出！')
+print('success!')
 time.sleep(3)
