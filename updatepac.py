@@ -1,11 +1,13 @@
 #!usr/bin/python3
-#coding=UTF-8
-print('请稍候...')
-url = 'https://raw.githubusercontent.com/petronny/gfwlist2pac/master/gfwlist.pac'
-print('载入地址完成')
-import urllib.request as urllib
+# -*- coding: utf-8 -*-
+
+import time
 import ssl as ssl
-print('载入库完成')
+import urllib.request as urllib
+
+VERSION = '1.0.1'
+print('version: ' + VERSION)
+url = 'https://raw.githubusercontent.com/petronny/gfwlist2pac/master/gfwlist.pac'
 # 关闭证书验证
 ssl._create_default_https_context = ssl._create_unverified_context
 print('获取网络数据中...')
@@ -22,5 +24,5 @@ if (bak is not False):
         f2.write(bak)
 with open('pac.txt', 'w+') as f:
     f.write(pac)
-print('更新完成!')
-input('按回车键退出')
+print('更新完成，3秒后退出！')
+time.sleep(3)

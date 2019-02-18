@@ -1,2 +1,1 @@
 python ./updatepac.py
-pause
